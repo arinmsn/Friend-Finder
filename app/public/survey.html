@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h2>Survey Questions</h2>
+    <br>
+    <h3>About You</h3>
+    <hr>
+    <h5>Name (Required)</h5>
+    <input class="form-control" type="text" placeholder="Enter your full name" id="userName" required>
+
+    <h5>Link to Photo Image (Required)</h5>
+    <input class="form-control" type="text" placeholder="Paste your photo's url link here" id="userImage" required>
+    <br>
+    <!-- <h4>Photo Upload</h4>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div> -->
+
+      <div class="form-group">
+        <h4>Question 1</h4>
+        <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
+        <select class="form-control" id="question1">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 2</h4>
+        <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your
+          imagination.</label>
+        <select class="form-control" id="question2">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 3</h4>
+        <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
+        <select class="form-control" id="question3">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 4</h4>
+        <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
+        <select class="form-control" id="question4">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 5</h4>
+        <label for="exampleFormControlSelect1">People can rarely upset you.</label>
+        <select class="form-control" id="question5">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 6</h4>
+        <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s feelings.</label>
+        <select class="form-control" id="question6">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 7</h4>
+        <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s sensitivities.</label>
+        <select class="form-control" id="question7">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 8</h4>
+        <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
+        <select class="form-control" id="question8">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 9</h4>
+        <label for="exampleFormControlSelect1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
+        <select class="form-control" id="question9">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <h4>Question 10</h4>
+        <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of people.</label>
+        <select class="form-control" id="question10">
+          <option value="" disabled selected>Choose from 1-5</option>
+          <option value="1">1 (strongly disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (strongly agree)</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg btn-block" id="submitButton">Submit the form</button>
+    </form><br><br>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Most compatible friend</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="userMatch"></p>
+            <img id="userMatchImage" width="500" src="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button href="/survey" type="button" class="btn btn-primary">Re-do the form</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/api/friends">API Friends List</a>
+    <span>   |   </span>
+    <a href="GITHUB LINK">Github Repo</a>
+  </header>
+
+    <script type="text/javascript">
+    
+    
+    </script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
