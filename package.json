@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/arinmsn/Friend-Finder#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "normalize.css": "^8.0.1"
   }

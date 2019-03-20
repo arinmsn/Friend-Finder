@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Friend Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
@@ -158,11 +159,13 @@
         </select>
       </div>
 
-      <button type="button" class="btn btn-primary btn-lg btn-block" id="submitButton">Submit the form</button>
+      <!-- <button type="button" class="btn btn-primary btn-lg btn-block" id="submitButton">Submit the form</button> -->
+
+      <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" id="submitButton" data-target="#modal1">Submit the form</button>
     </form><br><br>
 
     <!-- Modal -->
-    <div class="modal" tabindex="-1" role="dialog">
+    <div id="modal1" class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -173,7 +176,7 @@
           </div>
           <div class="modal-body">
             <p id="userMatch"></p>
-            <img id="userMatchImage" width="500" src="">
+            <img id="userMatchImage" width="275" height="353" src="">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -185,11 +188,64 @@
 
     <a href="/api/friends">API Friends List</a>
     <span>   |   </span>
-    <a href="GITHUB LINK">Github Repo</a>
+    <a href="https://github.com/arinmsn/Friend-Finder">Github Repo</a>
   </header>
 
     <script type="text/javascript">
+  $(document).ready(function(){
     
+    $('#submitButton').on('click', function(event) {
+      event.preventDefault();
+
+      var userData = {
+        name:   $('#userName').val().trim(),
+        photo:  $('#userImage').val(),
+        score: [
+          $('#question1').val(),
+          $('#question2').val(),
+          $('#question3').val(),
+          $('#question4').val(),
+          $('#question5').val(),
+          $('#question6').val(),
+          $('#question7').val(),
+          $('#question8').val(),
+          $('#question9').val(),
+          $('#question10').val(),
+        ]
+      };
+
+      // if ((name !== '') && (photo !== '')) {
+      //   // var URL = window.location.orgin; //ULR, "/api/friends/"
+      //   $.post("/api/friends", userData, function(data) {
+      //     if (data.name !== undefined) {
+      //       $('.modal-title').html('Most compatible friend match');
+      //       $('#userMatch').html(data.matchName);
+      //       $('#userMatchImage').attr("src", data.matchImage);
+      //     } else {
+      //       $('.modal-title').html('Insufficient data!');
+      //       $('.modal-body').html('Looks like more people need to add their profile before we can do any matching');
+      //     }
+      //   $('.modal1').modal('toggle');
+      //   });
+        
+      // } else {
+      //   // $('.modal-title').html('Attention');
+      //   // $('.modal-body').html('Ensure you have answered all questions.');
+      //   // $('#modal1').modal('toggle');
+      //   alert("Please fill out all fields before submitting!");
+      // }
+      // AJAX POST data to 'Friends' API
+      $.post("/api/friends", userData).done(function(data) {
+        $('#userMatch').html(data.matchName);
+        $('#userMatchImage').attr("src", data.matchImage)
+        $('#modal1').modal();
+      });
+
+     });
+
+
+
+  }); // $(document).ready
     
     </script>
     
