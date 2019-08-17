@@ -197,22 +197,67 @@
     $('#submitButton').on('click', function(event) {
       event.preventDefault();
 
-      var userData = {
-        name:   $('#userName').val().trim(),
-        photo:  $('#userImage').val(),
-        score: [
-          $('#question1').val(),
-          $('#question2').val(),
-          $('#question3').val(),
-          $('#question4').val(),
-          $('#question5').val(),
-          $('#question6').val(),
-          $('#question7').val(),
-          $('#question8').val(),
-          $('#question9').val(),
-          $('#question10').val(),
-        ]
-      };
+      function validateForm() {
+        var isValid = true;
+        $('.validate').each(functino() {
+          if ($(this).val() === ''){
+            isValid = false;
+          }
+        });
+        $('.browser-default').each(function(){
+          if ($(this).val() === ''){
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+      if (validateForm() == true {
+          var userData = {
+          name:   $('#userName').val().trim(),
+          photo:  $('#userImage').val(),
+          score: [
+            $('#question1').val(),
+            $('#question2').val(),
+            $('#question3').val(),
+            $('#question4').val(),
+            $('#question5').val(),
+            $('#question6').val(),
+            $('#question7').val(),
+            $('#question8').val(),
+            $('#question9').val(),
+            $('#question10').val(),
+            ]
+          };
+
+          var currentURL = window.location.origin;
+
+          $.post("/api/friends", userData).done(function(data) {
+            $('#userMatch').html(data.matchName);
+            $('#userMatchImage').attr("src", data.matchImage)
+          });
+
+          $('#modal1').modal();
+
+          $('#userName').val('')
+          $('#userImage').val('')
+          $('#question1').val('')
+          $('#question2').val('')
+          $('#question3').val('')
+          $('#question4').val('')
+          $('#question5').val('')
+          $('#question6').val('')
+          $('#question7').val('')
+          $('#question8').val('')
+          $('#question9').val('')
+          $('#question10').val('')
+
+
+      } else {
+        alert("You missed one. Make sure everything is filled out.")
+      }
+
+      
 
       // if ((name !== '') && (photo !== '')) {
       //   // var URL = window.location.orgin; //ULR, "/api/friends/"
@@ -235,11 +280,7 @@
       //   alert("Please fill out all fields before submitting!");
       // }
       // AJAX POST data to 'Friends' API
-      $.post("/api/friends", userData).done(function(data) {
-        $('#userMatch').html(data.matchName);
-        $('#userMatchImage').attr("src", data.matchImage)
-        $('#modal1').modal();
-      });
+      
 
      });
 
