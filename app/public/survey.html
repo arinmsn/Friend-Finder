@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Friend Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
@@ -16,10 +21,10 @@
     <h3>About You</h3>
     <hr>
     <h5>Name (Required)</h5>
-    <input class="form-control" type="text" placeholder="Enter your full name" id="userName" required>
+    <input class="form-control" type="text" placeholder="Enter your full name" id="name" required>
 
     <h5>Link to Photo Image (Required)</h5>
-    <input class="form-control" type="text" placeholder="Paste your photo's url link here" id="userImage" required>
+    <input class="form-control" type="text" placeholder="Paste your photo's url link here" id="photo" required>
     <br>
     <!-- <h4>Photo Upload</h4>
     <form>
@@ -31,7 +36,7 @@
       <div class="form-group">
         <h4>Question 1</h4>
         <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
-        <select class="form-control" id="question1">
+        <select class="form-control browser-default chosen" id="question1">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -45,7 +50,7 @@
         <h4>Question 2</h4>
         <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your
           imagination.</label>
-        <select class="form-control" id="question2">
+        <select class="form-control browser-default chosen" id="question2">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -58,7 +63,7 @@
       <div class="form-group">
         <h4>Question 3</h4>
         <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
-        <select class="form-control" id="question3">
+        <select class="form-control browser-default chosen" id="question3">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -71,7 +76,7 @@
       <div class="form-group">
         <h4>Question 4</h4>
         <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
-        <select class="form-control" id="question4">
+        <select class="form-control browser-default chosen" id="question4">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -84,7 +89,7 @@
       <div class="form-group">
         <h4>Question 5</h4>
         <label for="exampleFormControlSelect1">People can rarely upset you.</label>
-        <select class="form-control" id="question5">
+        <select class="form-control browser-default chosen" id="question5">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -97,7 +102,7 @@
       <div class="form-group">
         <h4>Question 6</h4>
         <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s feelings.</label>
-        <select class="form-control" id="question6">
+        <select class="form-control browser-default chosen" id="question6">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -110,7 +115,7 @@
       <div class="form-group">
         <h4>Question 7</h4>
         <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s sensitivities.</label>
-        <select class="form-control" id="question7">
+        <select class="form-control browser-default chosen" id="question7">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -123,7 +128,7 @@
       <div class="form-group">
         <h4>Question 8</h4>
         <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
-        <select class="form-control" id="question8">
+        <select class="form-control browser-default chosen" id="question8">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -136,7 +141,7 @@
       <div class="form-group">
         <h4>Question 9</h4>
         <label for="exampleFormControlSelect1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
-        <select class="form-control" id="question9">
+        <select class="form-control browser-default chosen" id="question9">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -149,7 +154,7 @@
       <div class="form-group">
         <h4>Question 10</h4>
         <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of people.</label>
-        <select class="form-control" id="question10">
+        <select class="form-control browser-default chosen" id="question10">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -176,7 +181,8 @@
           </div>
           <div class="modal-body">
             <p id="userMatch"></p>
-            <img id="userMatchImage" width="275" height="353" src="">
+            <img id="userMatchImage" width="275" height="353" src="https://via.placeholder.com/400x400"
+            alt="Placeholder image in case of no image">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -191,105 +197,59 @@
     <a href="https://github.com/arinmsn/Friend-Finder">Github Repo</a>
   </header>
 
-    <script type="text/javascript">
-  $(document).ready(function(){
-    
-    $('#submitButton').on('click', function(event) {
-      event.preventDefault();
+  <script type="text/javascript">
 
-      function validateForm() {
-        var isValid = true;
-        $('.validate').each(functino() {
-          if ($(this).val() === ''){
-            isValid = false;
-          }
-        });
-        $('.browser-default').each(function(){
-          if ($(this).val() === ''){
-            isValid = false;
-          }
-        });
-        return isValid;
+  $("#submitButton").on('click', function(){
+    function validateForm() {
+      var isValid = true;
+      $(".form-control").each(function(){
+        if ($(this).val() == "") isValid = false;
+      });
+
+      $(".chosen").each(function(){
+        if ($(this).val() == "") isValid = false;
+      });
+
+      return isValid;
+    }
+
+    if (validateForm() === true) {
+      var userData = {
+        name: $("#name").val().trim(),
+        photo:  $("#photo").val(),
+        scores: [
+          $('#question1').val(),
+          $('#question2').val(),
+          $('#question3').val(),
+          $('#question4').val(),
+          $('#question5').val(),
+          $('#question6').val(),
+          $('#question7').val(),
+          $('#question8').val(),
+          $('#question9').val(),
+          $('#question10').val()
+        ]
       }
+      var currentURL = window.location.origin;
 
-      if (validateForm() == true {
-          var userData = {
-          name:   $('#userName').val().trim(),
-          photo:  $('#userImage').val(),
-          score: [
-            $('#question1').val(),
-            $('#question2').val(),
-            $('#question3').val(),
-            $('#question4').val(),
-            $('#question5').val(),
-            $('#question6').val(),
-            $('#question7').val(),
-            $('#question8').val(),
-            $('#question9').val(),
-            $('#question10').val(),
-            ]
-          };
-
-          var currentURL = window.location.origin;
-
-          $.post("/api/friends", userData).done(function(data) {
-            $('#userMatch').html(data.matchName);
-            $('#userMatchImage').attr("src", data.matchImage)
-          });
-
-          $('#modal1').modal();
-
-          $('#userName').val('')
-          $('#userImage').val('')
-          $('#question1').val('')
-          $('#question2').val('')
-          $('#question3').val('')
-          $('#question4').val('')
-          $('#question5').val('')
-          $('#question6').val('')
-          $('#question7').val('')
-          $('#question8').val('')
-          $('#question9').val('')
-          $('#question10').val('')
-
-
+      $.post(currentURL + "/api/friends", userData, function(data) {
+          $('#userMatch').text(data.name);
+          $('#userMatchImage').attr("src", data.photo)
+          $("#modal1").modal("toggle");
+      });
       } else {
-        alert("You missed one. Make sure everything is filled out.")
+        <div class="container">
+          <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>You missed one. Make sure everything is filled out.</strong>
+          </div>
+        </div>
+        //alert("You missed one. Make sure everything is filled out.")
       }
-
-      
-
-      // if ((name !== '') && (photo !== '')) {
-      //   // var URL = window.location.orgin; //ULR, "/api/friends/"
-      //   $.post("/api/friends", userData, function(data) {
-      //     if (data.name !== undefined) {
-      //       $('.modal-title').html('Most compatible friend match');
-      //       $('#userMatch').html(data.matchName);
-      //       $('#userMatchImage').attr("src", data.matchImage);
-      //     } else {
-      //       $('.modal-title').html('Insufficient data!');
-      //       $('.modal-body').html('Looks like more people need to add their profile before we can do any matching');
-      //     }
-      //   $('.modal1').modal('toggle');
-      //   });
-        
-      // } else {
-      //   // $('.modal-title').html('Attention');
-      //   // $('.modal-body').html('Ensure you have answered all questions.');
-      //   // $('#modal1').modal('toggle');
-      //   alert("Please fill out all fields before submitting!");
-      // }
-      // AJAX POST data to 'Friends' API
-      
-
+      return false;
      });
 
-
-
-  }); // $(document).ready
-    
-    </script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</script>    
+ 
 </body>
 </html>
