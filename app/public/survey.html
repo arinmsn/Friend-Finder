@@ -233,8 +233,9 @@
       $.post(currentURL + "/api/friends", userData, function(data) {
         $('#userMatch').text(data.name);
         $('#userMatchImage').attr("src", data.photo)
+         $('#modal1').modal();
       });
-      // $('#modal1').modal();
+     
 
       $('#userName').val().trim('');
       $('#userImage').val('');

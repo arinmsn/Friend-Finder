@@ -1,5 +1,3 @@
-var path = require("path");
-
 var friends = require("../data/friends");
 
 module.exports = function(app) {
@@ -30,17 +28,10 @@ module.exports = function(app) {
       photo: req.body.photo,
       score: b
     };
-    console.log(`-----`);
-    console.log(`Name:  ${userName}`);
-    console.log(`User score:  ${userScores}`);
-    console.log(`-----`);
-    var sum = b.reduce((a, b) => a + b, 0);
-    console.log(`User's sum of scores:  ${sum}`);
-    console.log(`Best match friends difference: ${bestMatch.friendDifference}`);
-    console.log(`-----`);
+    let sum = b.reduce((a, b) => a + b, 0);
 
     // Loop through all friends
-    for (var i = 0; i < friends.length; i++) {
+    for (let i = 0; i < friends.length; i++) {
       console.log(friends[i].name);
       totalDifference = 0;
       console.log(`Total Difference: ${totalDifference}`);
@@ -65,34 +56,5 @@ module.exports = function(app) {
     console.log("New user was added.");
     console.log(userData);
     res.json(bestMatch);
-    // ==
-    /*
-    var userResponses = req.body.score;
-
-    var matchName = "";
-    var matchIamge = "";
-    var totalDifference = 40;
-
-    for (var i = 0; i < friends.length; i++) {
-      // Iterate over *all* friends
-      var diff = 0;
-
-      for (var j = 0; j < userResponses.length; j++) {
-        // Iterate over *scores* of all friends
-        diff += Math.abs(friends[i].scores[j] - userResponses[j]);
-        console.log(diff);
-      }
-
-      if (diff < totalDifference) {
-        totalDifference = diff;
-        matchName = friends[i].name;
-        matchImage = friends[i].photo;
-      }
-    }
-
-    friends.push(req.body);
-    res.json({ status: "OK", matchName: matchName, matchImage: matchImage });
-  });
-  */
   });
 };
