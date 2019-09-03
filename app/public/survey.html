@@ -16,10 +16,10 @@
     <h3>About You</h3>
     <hr>
     <h5>Name (Required)</h5>
-    <input class="form-control" type="text" placeholder="Enter your full name" id="userName" required>
+    <input class="form-control validate" type="text" placeholder="Enter your full name" id="userName" required>
 
     <h5>Link to Photo Image (Required)</h5>
-    <input class="form-control" type="text" placeholder="Paste your photo's url link here" id="userImage" required>
+    <input class="form-control validate" type="text" placeholder="Paste your photo's url link here" id="userImage" required>
     <br>
     <!-- <h4>Photo Upload</h4>
     <form>
@@ -31,7 +31,7 @@
       <div class="form-group">
         <h4>Question 1</h4>
         <label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
-        <select class="form-control" id="question1">
+        <select class="form-control q" id="question1">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -45,7 +45,7 @@
         <h4>Question 2</h4>
         <label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your
           imagination.</label>
-        <select class="form-control" id="question2">
+        <select class="form-control q" id="question2">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -58,7 +58,7 @@
       <div class="form-group">
         <h4>Question 3</h4>
         <label for="exampleFormControlSelect1">You find it easy to stay relaxed and focused even when there is some pressure.</label>
-        <select class="form-control" id="question3">
+        <select class="form-control q" id="question3">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -71,7 +71,7 @@
       <div class="form-group">
         <h4>Question 4</h4>
         <label for="exampleFormControlSelect1">You rarely do something just out of sheer curiosity.</label>
-        <select class="form-control" id="question4">
+        <select class="form-control q" id="question4">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -84,7 +84,7 @@
       <div class="form-group">
         <h4>Question 5</h4>
         <label for="exampleFormControlSelect1">People can rarely upset you.</label>
-        <select class="form-control" id="question5">
+        <select class="form-control q" id="question5">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -97,7 +97,7 @@
       <div class="form-group">
         <h4>Question 6</h4>
         <label for="exampleFormControlSelect1">It is often difficult for you to relate to other people’s feelings.</label>
-        <select class="form-control" id="question6">
+        <select class="form-control q" id="question6">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -110,7 +110,7 @@
       <div class="form-group">
         <h4>Question 7</h4>
         <label for="exampleFormControlSelect1">In a discussion, truth should be more important than people’s sensitivities.</label>
-        <select class="form-control" id="question7">
+        <select class="form-control q" id="question7">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -123,7 +123,7 @@
       <div class="form-group">
         <h4>Question 8</h4>
         <label for="exampleFormControlSelect1">You rarely get carried away by fantasies and ideas.</label>
-        <select class="form-control" id="question8">
+        <select class="form-control q" id="question8">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -136,7 +136,7 @@
       <div class="form-group">
         <h4>Question 9</h4>
         <label for="exampleFormControlSelect1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
-        <select class="form-control" id="question9">
+        <select class="form-control q" id="question9">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -149,7 +149,7 @@
       <div class="form-group">
         <h4>Question 10</h4>
         <label for="exampleFormControlSelect1">You feel more energetic after spending time with a group of people.</label>
-        <select class="form-control" id="question10">
+        <select class="form-control q" id="question10">
           <option value="" disabled selected>Choose from 1-5</option>
           <option value="1">1 (strongly disagree)</option>
           <option value="2">2</option>
@@ -161,7 +161,7 @@
 
       <!-- <button type="button" class="btn btn-primary btn-lg btn-block" id="submitButton">Submit the form</button> -->
 
-      <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" id="submitButton" data-target="#modal1">Submit the form</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" id="submitButton" data-target="#modal1">Submit the form</button>
     </form><br><br>
 
     <!-- Modal -->
@@ -193,13 +193,27 @@
 
     <script type="text/javascript">
   $(document).ready(function(){
-    
-    $('#submitButton').on('click', function(event) {
-      event.preventDefault();
+    $('#submitButton').on('click', function() {
+      function validateForm() {
+        var isValid = true;
+        $('.validate').each(function() {
+          if ($(this).val() === '') {
+            isValid = false;
+          }
+        });
 
-      var userData = {
+        $('.q').each(function() {
+          if ($(this).val() === '') {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+      if (validateForm() == true) {
+        var userData = {
         name:   $('#userName').val().trim(),
-        photo:  $('#userImage').val(),
+        photo:  $('#userImage').val().trim(),
         score: [
           $('#question1').val(),
           $('#question2').val(),
@@ -214,38 +228,33 @@
         ]
       };
 
-      // if ((name !== '') && (photo !== '')) {
-      //   // var URL = window.location.orgin; //ULR, "/api/friends/"
-      //   $.post("/api/friends", userData, function(data) {
-      //     if (data.name !== undefined) {
-      //       $('.modal-title').html('Most compatible friend match');
-      //       $('#userMatch').html(data.matchName);
-      //       $('#userMatchImage').attr("src", data.matchImage);
-      //     } else {
-      //       $('.modal-title').html('Insufficient data!');
-      //       $('.modal-body').html('Looks like more people need to add their profile before we can do any matching');
-      //     }
-      //   $('.modal1').modal('toggle');
-      //   });
-        
-      // } else {
-      //   // $('.modal-title').html('Attention');
-      //   // $('.modal-body').html('Ensure you have answered all questions.');
-      //   // $('#modal1').modal('toggle');
-      //   alert("Please fill out all fields before submitting!");
-      // }
-      // AJAX POST data to 'Friends' API
-      $.post("/api/friends", userData).done(function(data) {
-        $('#userMatch').html(data.matchName);
-        $('#userMatchImage').attr("src", data.matchImage)
-        $('#modal1').modal();
+      var currentURL = window.location.origin;
+
+      $.post(currentURL + "/api/friends", userData, function(data) {
+        $('#userMatch').text(data.name);
+        $('#userMatchImage').attr("src", data.photo)
       });
+      // $('#modal1').modal();
 
-     });
-
-
-
-  }); // $(document).ready
+      $('#userName').val().trim('');
+      $('#userImage').val('');
+      $('#question1').val('');
+      $('#question2').val('');
+      $('#question3').val('');
+      $('#question4').val('');
+      $('#question5').val('');
+      $('#question6').val('');
+      $('#question7').val('');
+      $('#question8').val('');
+      $('#question9').val('');
+      $('#question10').val('');
+      
+      } else {
+        alert("Please, make sure you have answered all questions.")
+      }
+      return false;
+    });
+}); // $(document).ready
     
     </script>
     
